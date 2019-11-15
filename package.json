@@ -1,0 +1,81 @@
+{
+  "name": "generator-azhu-ui",
+  "version": "1.0.0",
+  "description": "react component azhu",
+  "main": "lib/index.js",
+  "scripts": {
+    "dev": "webpack-dev-server --config example/webpack.dev.js",
+    "build:package": "webpack --config example/webpack.prod.js",
+    "build:transpile": "cross-env babel src --out-dir lib",
+    "build": "rm -rf lib && mkdir lib && npm run build:package && npm run build:transpile"
+  },
+  "keywords": [
+    "react",
+    "react-dom",
+    "azhu",
+    "generator"
+  ],
+  "author": "johan",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/cli": "^7.7.0",
+    "@babel/core": "^7.7.2",
+    "@babel/plugin-proposal-class-properties": "^7.7.0",
+    "@babel/plugin-proposal-export-default-from": "^7.5.2",
+    "@babel/plugin-transform-runtime": "^7.6.2",
+    "@babel/preset-env": "^7.7.1",
+    "@babel/preset-react": "^7.7.0",
+    "autoprefixer": "^9.7.1",
+    "babel-eslint": "^10.0.3",
+    "babel-loader": "^8.0.6",
+    "babel-plugin-add-module-exports": "^1.0.2",
+    "clean-webpack-plugin": "^3.0.0",
+    "css-loader": "^3.2.0",
+    "eslint": "^6.6.0",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-config-prettier": "^6.5.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.16.0",
+    "eslint-plugin-react-hooks": "^2.3.0",
+    "file-loader": "^4.2.0",
+    "html-webpack-plugin": "^3.2.0",
+    "husky": "^3.0.9",
+    "lint-staged": "^9.4.3",
+    "mini-css-extract-plugin": "^0.8.0",
+    "node-sass": "^4.13.0",
+    "optimize-css-assets-webpack-plugin": "^5.0.3",
+    "postcss-loader": "^3.0.0",
+    "prettier": "^1.19.1",
+    "sass-loader": "^8.0.0",
+    "style-loader": "^1.0.0",
+    "uglifyjs-webpack-plugin": "^2.2.0",
+    "webpack": "^4.41.2",
+    "webpack-dev-server": "^3.9.0"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.7.2",
+    "classnames": "^2.2.6",
+    "cross-env": "^6.0.3",
+    "prop-types": "^15.7.2",
+    "react": "^16.11.0",
+    "react-dom": "^16.11.0"
+  },
+  "browserslist": [
+    "iOS >= 8",
+    "Firefox >= 20",
+    "Android > 4.4"
+  ],
+  "lint-staged": {
+    "{src}/*.{js, jsx, json, css}": [
+      "eslint --fix .",
+      "prettier --write --trailing-comma es5 --single-quote",
+      "git add"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  }
+}
